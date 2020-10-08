@@ -3,12 +3,14 @@ from dataset import get_dataset, get_handler
 from model import get_net
 from torchvision import transforms
 import torch
+import multiprocessing
 from query_strategies import RandomSampling, LeastConfidence, MarginSampling, EntropySampling, \
                                 LeastConfidenceDropout, MarginSamplingDropout, EntropySamplingDropout, \
                                 KMeansSampling, KCenterGreedy, BALDDropout, CoreSet, \
                                 AdversarialBIM, AdversarialDeepFool, ActiveLearningByLearning
 
 # parameters
+multiprocessing.set_start_method("fork")
 SEED = 1
 
 NUM_INIT_LB = 10000
